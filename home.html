@@ -1,156 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todoist-like UI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            height: 100vh;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        /* Sidebar styling */
-        .sidebar {
-            width: 250px;
-            background-color: #fafafa;
-            border-right: 1px solid #ddd;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .sidebar .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .sidebar .profile img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .sidebar .profile h3 {
-            font-size: 16px;
-        }
-        .sidebar ul {
-            list-style: none;
-        }
-        .sidebar ul li {
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
-            font-size: 15px;
-            color: #555;
-            cursor: pointer;
-        }
-        .sidebar ul li img {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
-        }
-        .sidebar ul li:hover {
-            color: #000;
-        }
-        /* Main Content styling */
-        .main-content {
-            flex: 1;
-            padding: 20px 30px;
-        }
-        .main-content header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        .main-content header h1 {
-            font-size: 24px;
-        }
-        .main-content header .calendar,
-        .main-content header .view {
-            font-size: 14px;
-            color: #888;
-            cursor: pointer;
-        }
-        .task-section {
-            padding: 10px 0;
-        }
-        .task-section h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .task-section .task {
-            display: flex;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 16px;
-        }
-        .task-section .task input[type="checkbox"] {
-            margin-right: 10px;
-            transform: scale(1.2);
-        }
-        .task-section .add-task {
-            color: #ff6347;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div>
-            <div class="profile">
-                <img src="https://via.placeholder.com/35" alt="Profile">
-                <h3>boss</h3>
-            </div>
-            <ul>
-                <li><span style="color: #d93025; font-size: 18px;">+</span> Add task</li>
-                <li><img src="https://via.placeholder.com/18" alt="icon"> Search</li>
-                <li><img src="https://via.placeholder.com/18" alt="icon"> Inbox <span style="margin-left: auto; color: #888;">3</span></li>
-                <li><img src="https://via.placeholder.com/18" alt="icon"> Today <span style="margin-left: auto; color: #888;">1</span></li>
-                <li><img src="https://via.placeholder.com/18" alt="icon"> Upcoming</li>
-                <li><img src="https://via.placeholder.com/18" alt="icon"> Filters & Labels</li>
-            </ul>
-            <h3>My Projects</h3>
-            <ul>
-                <li><img src="https://via.placeholder.com/18" alt="icon"> Home 🏠 <span style="margin-left: auto; color: #888;">5</span></li>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <li style="color: #888;">+ Add a team</li>
-                <li style="color: #888;">Browse templates</li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="main-content">
-        <header>
-            <h1>Today</h1>
-            <div>
-                <span class="calendar">Calendar events</span> | <span class="view">View</span>
-            </div>
-        </header>
-        <div class="task-section">
-            <h2>1 task</h2>
-            <div class="task">
-                <input type="checkbox">
-                <span>Download Todoist on <a href="#">all your devices</a> and email for 🖥️, 📱, and 📧</span>
-            </div>
-            <div class="add-task">+ Add task</div>
-        </div>
-    </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <strong>Task Manager</strong>
+      <img src="./assets/Moon and Stars.png" alt="" id="theme" />
+      <div class="stroke"></div>
+    </header>
+    <main>
+      <div class="date">
+        <strong>Today</strong>
+        <div class="stroke"></div>
+      </div>
+      <div class="tasks"></div>
+      <div class="addFile" id="outerAdder">
+        <p>Add +</p>
+      </div>
+      <div class="getInput">
+        <img src="./assets/Close.png" alt="" id="close" />
+        <input
+          type="text"
+          name=""
+          id="inTask"
+          placeholder="Enter your Task here..."
+          autocomplete="off"
+        />
+      </div>
+    </main>
+  </body>
+
+  <script src="App.js"></script>
 </html>

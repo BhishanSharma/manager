@@ -1,133 +1,168 @@
 :root {
-  --main: #9c00bb;
-  --main-light: #f2b2ff;
-  --main-back: #fefaff;
+  --color: #6a4e00;
+  --background: #fadd90;
+  --highlight: #fad46b;
 }
-
+.dark-theme {
+  --color: #fadd90;
+  --background: #6a4e00;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  user-select: none;
+  font-family: Inter;
+  color: var(--color);
 }
-
 html,
 body {
   width: 100%;
   height: 100%;
-  background-color: var(--main-back);
 }
-
-body::-webkit-scrollbar{
-    display: none;
+body {
+  background-color: var(--background);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-nav {
-  width: 100%;
-  height: 10vh;
+header {
+  height: 12vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 25px;
-  position: sticky;
+  position: relative;
+  padding: 0 20px;
 }
-
-.icon {
-  display: flex;
-  gap: 10px;
-  height: 80%;
-  width: fit-content;
-  align-items: center;
-  justify-content: center;
-  color: var(--main);
-  font-size: 20px;
-  letter-spacing: -1px;
-}
-
-.icon > img {
-  height: 55%;
-  border-radius: 5px;
-}
-
-.links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style-type: none;
-}
-
-.link {
-  padding: 10px 20px;
-  border-radius: 6px;
+header > img {
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 }
-
-.dd-title {
+header > strong {
+  font-size: 40px;
+  font-weight: 400;
+}
+header > .stroke {
+  position: absolute;
+  width: 80%;
+  height: 1px;
+  background-color: var(--color);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+main {
+  margin-top: 100px;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display: flex;
   align-items: center;
-  gap: 5px;
+  flex-direction: column;
 }
-
-.dd-title > img {
-  height: 15px;
-}
-
-.link:hover {
-  background-color: rgb(240, 240, 240);
-}
-
-.links > .line {
-  width: 1px;
-  height: 20px;
-  background-color: rgb(160, 160, 160);
-  margin: 0 5px;
-}
-
-.links > .start {
-  color: white;
-  background-color: var(--main);
-  font-weight: 700;
-  margin: 0 0 0 5px;
-}
-
-.resources {
-  position: relative;
-}
-
-.dropdown {
-  display: none;
-}
-
-.resources:hover > .dropdown {
-  display: block;
-  height: 10vh;
-  background-color: white;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 17vw;
+.date {
+  width: 60%;
   height: fit-content;
-  list-style-type: none;
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.date > strong {
+  font-weight: 300;
+  font-size: 30px;
+}
+.stroke {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color);
+}
+.tasks {
+  padding: 0 10px;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
-  box-shadow: 0px 0px 10px var(--main-light);
+  justify-content: center;
 }
-
-.dropdown > li {
-  padding: 15px 5px;
+.no-item {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: 300;
 }
-
-.dropdown > li:hover{
-    background-color: rgb(240, 240, 240);
-    border-radius: 12px;
+.addFile,
+.done {
+  padding: 5px 10px;
+  border: 1px dotted var(--color);
+  border-radius: 13px;
+  font-size: 12px;
+  cursor: pointer;
 }
-
-main{
-    width: 100vw;
-    height: 100vh;
+.done {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.getInput {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: var(--background);
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.getInput > input {
+  width: 30%;
+  padding: 10px;
+  outline: none;
+  border-radius: 7px;
+  border: 1px solid var(--color);
+  background-color: var(--color);
+  color: var(--background);
+  margin-bottom: 200px;
+  user-select: none;
+}
+.getInput > input::placeholder {
+  color: var(--background);
+}
+::selection {
+  background-color: var(--highlight);
+  color: var(--color);
+}
+.getInput > img {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.task {
+  width: 100%;
+  height: 6vh;
+  border-bottom: 1px solid var(--color);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 10px;
+  margin: 10px 0;
+  position: relative;
+}
+#stroke-task {
+  width: 95%;
+  height: 1px;
+  background-color: var(--color);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+}
+#outerAdder {
+  display: none;
 }
