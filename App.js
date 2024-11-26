@@ -11,7 +11,7 @@ const toggleTheme = () => {
   const rootElement = document.documentElement;
   rootElement.classList.toggle("dark-theme");
   dark_theme = dark_theme ? 0 : 1;
-  theme.src = dark_theme ? "./assets/Sun.png" : "./assets/Moon and Stars.png";
+  theme.src = dark_theme ? "../assets/Sun.png" : "../assets/Moon and Stars.png";
 };
 
 let tasks = [];
