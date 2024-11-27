@@ -1,6 +1,6 @@
-let start = document.querySelector(".submit");
+let startBtn = document.querySelector(".submit");
 
-start.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
   const errorMessage = document.getElementById("error-message");
   errorMessage.style.display = "none";
   errorMessage.innerHTML = "";
